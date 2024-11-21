@@ -3,26 +3,34 @@ import sys
 
 # 请在此输入您的代码
 
+'''
+走一步，西北的箭牌就少一个，符合情况的就是全部和为0
+'''
 def dfs(x, y):
     # 每次进来先打标记
     vis[x][y] = True
-    north_w[y] += 1
-    west_w[x] += 1
+    north[y] -= 1
+    west[x] -= 1
     
 
     # 当前位置的箭靶数
     path.append(A[x - 1][y - 1])
     # 出口
     if x == n + 1 and y == n + 1:
+        # 判断到右下角的这一条路是不是符合题目的要求的
+        # 因为有很多种可能能到左下角，但是只有一种也就是把所有的靶子数用完的这一种情况
+        if sum(north) == 0 and sum(west) == 0:
+            
+            return
         
-        return
+            
 
     # 每层循环的操作
     # 
     for delta_x, delta_y in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         xx, yy = x + delta_x, y + delta_y
         # 不满足的情况
-        if vis[xx][yy] or north_w[yy] >= north[yy] or west_w[xx] >= west[xx]:
+        if vis[xx][yy] or north[yy] >= 0 or west[xx] >= 0:
             continue
         # 满足了    
         
@@ -30,13 +38,9 @@ def dfs(x, y):
     
 
 n = int(input())
-
-north_w = [0] * (n + 2) 
-west_w = [0] * (n + 2)
 # n * n, 多两行，防止越界 
 # 1 ~ n + 1 是有效位置
 A = [[row * n + col for col in range(n)] for row in range(n)]
-print(A)
 # 标记走没走过
 vis = [[ False for _ in range(n + 3)] for _ in range(n + 3)]
 # 1 ~ n + 1 是有效位置
