@@ -11,6 +11,10 @@
 # 优化
 # dp[i][j] = max(dp[i-1][j], dp[i][j-w] + v)
 
+#? 01: dp[i][j] = max(dp[i-1][j], dp[i-1][j-w] + v)
+
+#? 完全: dp[i][j] = max(dp[i-1][j], dp[i][j-w] + v)
+
 N, V = map(int, input().split())
 # dp = [[0] * (V + 1) for i in range(N + 1)]
 
