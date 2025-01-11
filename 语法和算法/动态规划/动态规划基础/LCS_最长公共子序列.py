@@ -6,10 +6,8 @@
 边界: dp[0][0] = dp[...][0] = do[0][...] = 0
 
 dp[i][j] = {
-    
     dp[i-1][j-1] + 1, a1[i] == a2[j]
     max(dp[i-1][j], dp[i][j-1]), other
-    
 }
 '''
 
@@ -25,6 +23,9 @@ lenA, lenB = len(A), len(B)
 dp = [[0] * (m + 1) for i in range(n + 1)]
 for i in range(1, n + 1):
     for j in range(1, m + 1):
+        # dp[i][j] 表示字符串 A 的前 i 个字符和字符串 B 的前 j 个字符的最长公共子序列的长度
+        # 如果 A[i-1] 和 B[j-1] 相等，那么 dp[i][j] = dp[i-1][j-1] + 1
+        # 否则，dp[i][j] = max(dp[i-1][j], dp[i][j-1])
         dp[i][j] = dp[i-1][j-1] + 1 if A[i-1] == B[j-1] else max(dp[i-1][j], dp[i][j-1])
 print(dp[n][m])
 
