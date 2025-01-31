@@ -52,6 +52,9 @@ def bfs(graph, start):
         node = queue.popleft() # 队首出
         print(node, end=" ")  # 打印当前节点
         
+        if 是否到达:
+            return
+        
         # 遍历当前节点的所有邻居
         for neighbor in graph[node]:
             if neighbor not in visited:
