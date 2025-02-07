@@ -27,7 +27,7 @@ dp2 = [0] + [1] * n
 #? 这个是最长下降子序列
 for i in range(n, 0, -1):
     for j in range(i + 1, n + 1):
-        if a[j] < a[i]:
+        if a[j] <= a[i]:
             dp2[i] = max(dp2[i], dp2[j] + 1)
 print(max(dp2))
 
@@ -39,9 +39,8 @@ dp = [0] + [1] * n
 for i in range(1, n + 1):
     for j in range(1, i):
         #? 在i的前面找到小于a[i] 的数字 a[j]
-        if a[j] < a[i]:
+        if a[j] <= a[i]:
             # a[i]要比前一个大
             dp[i] = max(dp[j] + 1, dp[i])
             
 print(max(dp)) # 答案
-            
