@@ -10,7 +10,10 @@ A = [0] + sorted(A, key = lambda x: x[1])
 dp = [0] * 100010
 
 for i in range(1, n + 1):
-    a, b, c = A[i]
-    for j in range(b, a - 1,-1):
-        dp[j] = max(dp[j], dp[j - a] + c)
+    wait_time, deadline, value = A[i]
+    for j in range(wait_time, deadline - 1,-1):
+        #? j-> 当前的时间
+        #?   wait_time <= j <= deadline 才能买这节课
+        #? 一维: 从后往前更新
+        dp[j] = max(dp[j], dp[j - wait_time] + value)
 print(max(dp))
