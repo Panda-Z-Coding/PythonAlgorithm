@@ -11,7 +11,7 @@ value = 1
 Map = []
 for i in range(n+m-1):
     if k <= (n+m-1) // 2:
-        if k % 2 == 0:
+        if k % 2 == 0: 
             #如果k是偶数列，那么从左向右加
             Map.append([_ + value for _ in range(l)])
             value += l

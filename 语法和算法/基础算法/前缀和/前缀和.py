@@ -26,10 +26,22 @@ def get_sum(sum,l,r):
     else:
         return sum[r] - sum[l - 1]
 
+def get_presum1(arr):
+    n = len(arr)
+    sum = [0] * n
+    sum[0] = arr[0]
+    for i in range(1, n):
+        sum[i] += sum[i-1] + arr[i]
+    return sum
+
+def get_sum1(sum, l, r):
+    return sum[r] if l == 0 else sum[r] - sum[l - 1]
+
+ 
+
+
 a = [1,2,3,4,5,6,7]
-sum = get_presum(a)
+sum = get_presum1(a)
 print(a)
 print(sum)
-print(get_sum(sum,0,4))
-
-    
+print(get_sum1(sum,0,4))

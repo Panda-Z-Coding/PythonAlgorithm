@@ -31,6 +31,9 @@ def gcd_(a, b):
         return a
     return gcd_(b, a % b)
 
+def gcd__(a, b):
+    return a if b == 0 else gcd(b, a % b)
+
 print(gcd_(18, 12)) # 6
 
 #? 也可以从math中import
