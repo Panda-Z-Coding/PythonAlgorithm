@@ -16,6 +16,7 @@ def solve_n_queens(n):
                 queens[row] = col
                 backtrack(row + 1) # 安全的位置才会往下一层
                 queens[row] = -1  # 回溯, 撤销这次选择
+                #? 不回溯的话, 下一次进入这个循环还是会选择当前的行, 导致不能找到合法解
 
     result = []
     queens = [-1] * n  # 初始化棋盘
