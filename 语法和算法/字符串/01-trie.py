@@ -12,7 +12,7 @@ class TreeNode():
         curr = self
         for i in range(31, -1, -1): # 从高位走到低位
             c = (s >> i) & 1 # 每一位都取出来
-            if curr.nodes[c] in None:
+            if curr.nodes[c] is None:
                 curr.nodes[c] = TreeNode()
             curr = curr.nodes[c]
         
