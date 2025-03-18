@@ -8,7 +8,7 @@ def SlidingWindow(n, k ,nums, is_bigger):
     for i in range(n):
         
         if is_bigger:
-            # 维护递减的单调队列
+            # 维护递减的单调队列, 也就是队首是最大值
             # 当末尾元素小于等于当前要进来的元素, 把末尾元素弹出
             while queue and nums[queue[-1]] <= nums[i]:
                 queue.pop()
