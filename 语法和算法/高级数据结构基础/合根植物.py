@@ -5,23 +5,25 @@ def find(x):
         fa[x] = find(fa[x])  # 路径压缩,因为这个在后续查找的时候会自动全部指向一个祖先根
     return fa[x]
 
-# def find(x):
-#     if fa[x] != x:
-#         fa[x] = find(fa[x])
-#     return fa[x]
+'''
+def find(x):
+    if fa[x] != x:
+        fa[x] = find(fa[x])
+    return fa[x]
 
-# def merge(x, y):
-#     fx = find(x)
-#     fy = find(y)
-#     if fx != fy:
-#         fa[fy] = fx
+def merge(x, y):
+    fx = find(x)
+    fy = find(y)
+    if fx != fy:
+        fa[fy] = fx
+'''
 
 def merge(x, y):
     fx = find(x)
     fy = find(y)
     if fx != fy:
         fa[fy] = fx  # 按祖先合并
-
+#? >=> 
 # 读取输入
 m, n = map(int, sys.stdin.readline().split())
 k = int(sys.stdin.readline())
