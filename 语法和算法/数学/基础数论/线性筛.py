@@ -23,4 +23,4 @@ def f(n):
     return prime
 #! O(n)
 
-print(*f(100))
+print(*f(16))
