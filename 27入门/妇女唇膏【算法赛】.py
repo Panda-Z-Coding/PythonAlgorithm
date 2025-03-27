@@ -15,3 +15,8 @@ arr = list(map(int, input().split()))
 min_B = find_min_B(arr)
 # 输出结果
 print(min_B)
+
+#? A + B = A ^ B <==> A & B = 0
+#? A + B 会产生进位, A ^ B 如果要和 A + B相同的话不能让A + B产生进位
+#? 加法产生不进位的话, A ^ B 就能和 A + B相等
+#? 4 = 0100 ^ 0011 = 3 <==> 0100 + 0011 = 0111 = 0100 ^ 0011 = 0111 
