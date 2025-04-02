@@ -8,6 +8,7 @@
 
     sum = list(accumulate(a)) #也可以
 """
+from itertools import accumulate # 直接用库函数也行
 
 def get_presum(arr):#下标从0开始
     n = len(arr)
