@@ -20,7 +20,6 @@ for i in range(2):
 vis = set() # 看状态是否出现过
 queue = [(A, B, space)]
 vis.add((A,B,space))
-d
 # 标志变量, 看是否找到解
 flag = False
 cnt = 0 # 步数

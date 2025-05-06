@@ -38,7 +38,7 @@ dp[0] = 0 # 提升0力量花费为0
 # 填充dp
 
 for i in range(1, m + 1): # 每一种计划都遍历
-    for j in range(N):
+    for j in range(N): # 完全背包
         dp[j] = min(dp[j], dp[max(0, j - b[i])] + c[i])
 
 def check(mid):

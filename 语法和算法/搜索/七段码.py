@@ -24,7 +24,8 @@ for str1 in ans:
         cnt+= 1
         continue
 
-    for s1 in permutations(str1):
+    for s1 in permutations(str1):  # 组合
+        # permutations
         flag = 1
         for i in range(1, len(s1)):
             if s1[i-1] not in dict[s1[i]]:

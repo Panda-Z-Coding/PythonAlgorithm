@@ -19,7 +19,7 @@ def dfs(x, y, s):
         return
 
     next_node = num + 1
-    if num == k - 1:
+    if num == k - 1: # 循环
         next_node = 0
 
     for dx, dy, ns in dirs:
