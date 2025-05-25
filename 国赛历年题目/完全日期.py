@@ -3,11 +3,6 @@ import sys
 
 '''
 这里我们来复习一下datetime这个类
-
-
-
-判断n是否是完全平方数 -> 从1开始便利，自己*自己< n => n++ , 自己*自己 > n => break
-
 '''
 import datetime
 
