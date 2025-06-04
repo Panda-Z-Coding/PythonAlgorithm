@@ -29,7 +29,7 @@ for le in range(2, n + 1): # 枚举区间长度
             # 枚举中断点
             dp1[left][right] = max(dp1[left][right], dp1[left][k] + dp1[k + 1][right] + pres[right] - pres[left - 1])
             dp2[left][right] = min(dp2[left][right], dp2[left][k] + dp2[k + 1][right] + pres[right] - pres[left - 1])
-
+# O(n^3)
 min_s = inf
 max_s = -inf
 # 遍历所有长度为n的区间
