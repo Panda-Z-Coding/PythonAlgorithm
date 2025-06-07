@@ -5,10 +5,10 @@ sys.setrecursionlimit(1000000)
 n = int(input())
 a = [0] + list(map(int, input().split()))
 
-# 用defualtdict(list) 来充当树边映射关系
+# 用defaultdict(list) 来充当树边映射关系
 e = defaultdict(list)
 st = set(range(1, n + 1))
-
+# defaultdict(list)
 for _ in range(n - 1):
     x, y = map(int, input().split())
     e[y].append(x) # x是y的子节点
@@ -24,7 +24,7 @@ def dfs(u):
         dfs(v)
         dp[u][1] += dp[v][0]
         dp[u][0] += max(dp[v][1], dp[v][0])
-    dp[u][1] += a[u] # 选择的话再加上当前节点的权值
+    dp[u][1] += a[u] # 选择的话再加上当前节点的权值, 没有权值就+1
 
 dfs(rt)
 print(max(dp[rt][0], dp[rt][1]))
