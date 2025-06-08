@@ -16,7 +16,7 @@ class TreeNode():
                 # 如果没有c这一条边, 那就创建c边
             
             curr = curr.nodes[c]
-            curr.is_leaf = True # 走到叶子了    
+        curr.is_leaf = True # 走到叶子了    
 
     def prex(self, s):
         # 判断前缀s是否存在
