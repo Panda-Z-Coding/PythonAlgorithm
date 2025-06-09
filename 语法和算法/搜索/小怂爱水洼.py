@@ -1,6 +1,6 @@
 import sys
 sys.setrecursionlimit(100000)
-
+from functools import lru_cache
 N, M = map(int, input().split())
 
 res = 0
@@ -10,6 +10,7 @@ coor = [list(map(int, input().split())) for _ in range(N)]
 
 directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
 
+@lru_cache(maxsize=None)
 def dfs(x, y):
     s = coor[x][y]  # 读取当前水塘水的数量
     vis[x][y] = True
