@@ -38,6 +38,7 @@ for i in range(window + 1, n + 1):
             for bit in [0, 1]:
                 old_mask = ((mask << 1) | bit) & ((1 << window) - 1) # 先在右边添加bit再截断
                 # (1 << window) - 1 == (11111) == 31
+                # 想要截断某一个二进制数 ==> & ((1 << l) - 1)  ## l是截断之后的长度
                 if is_valid_mask(old_mask):
                     dp[i][mask] += dp[i-1][old_mask]
 
