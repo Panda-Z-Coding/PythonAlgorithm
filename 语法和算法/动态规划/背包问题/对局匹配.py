@@ -34,6 +34,9 @@ else:
     
     ans = 0
     for i in range(maxn - 1, maxn - k - 1, -1):
+        '''
+        因为题目要求的是不等于k的个数, 不等于k的情况是不是就 0 -> k - 1 这k种，我们最后把这k种累加起来就可以了
+        '''
         ans += dp[i]
     print(ans)
 
