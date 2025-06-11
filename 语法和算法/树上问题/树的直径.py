@@ -19,7 +19,7 @@ def dfs(x, fu):
 
 from collections import defaultdict
 n = int(input())
-dp1 = [0] * n
+dp1 = [0] * n # 从当前点为根节点出发能延生的最长距离
 dp2 = [0] * n
 
 # 邻接表存树的结构...
