@@ -1,6 +1,8 @@
 import os
 import sys
 input = sys.stdin.readline
+
+'''
 # 先要搞懂这个左括号是和谁匹配的
 
 s = input().strip()
@@ -54,4 +56,15 @@ for _ in range(q):
     x = int(x)
     # query
     print(query(c, x))
+    
+# 40 % 
+# 这种解法太暴力了
+# 我们用栈去获取匹配的括号下标是妹问题的
+# 只不过后面的判断太费时间了
+# 这里我们可以新学到一个 => 字符串前缀和 => prefix['c'][i] :: c这个字符串在 0, ... , i - 1 出现了多少次 
+'''
+
+
+
+
 
