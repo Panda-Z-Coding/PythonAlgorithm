@@ -65,6 +65,73 @@ for _ in range(q):
 '''
 
 
+import bisect
+from collections import defaultdict
+
+def main():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    s = data[0]
+    ptr = 1
+    q = int(data[ptr])
+    ptr += 1
+    queries = []
+    for _ in range(q):
+        c = data[ptr]
+        x = int(data[ptr+1])
+        queries.append((ord(c)-ord('a'), x))
+        ptr += 2
+
+    # 1. 括号匹配预处理
+    stack = []
+    brackets = []
+    for i, ch in enumerate(s):
+        if ch == '(':
+            stack.append(i)
+        elif ch == ')':
+            l = stack.pop()
+            brackets.append((l, i))
+    brackets.sort()
+
+    # 2. 构建前缀和数组
+    n = len(s)
+    prefix = [[0]*(n+1) for _ in range(26)]
+    for i in range(n):
+        ch = s[i]
+        if ch.isalpha():
+            idx = ord(ch) - ord('a')
+            for c in range(26):
+                prefix[c][i+1] = prefix[c][i] + (1 if c == idx else 0)
+        else:
+            for c in range(26):
+                prefix[c][i+1] = prefix[c][i]
+
+    # 3. 预处理字符计数
+    char_counts = defaultdict(list)
+    for l, r in brackets:
+        for c in range(26):
+            cnt = prefix[c][r+1] - prefix[c][l]
+            if cnt > 0:
+                char_counts[c].append(cnt)
+    for c in char_counts:
+        char_counts[c].sort()
+
+    # 4. 处理查询
+    results = []
+    for c, x in queries:
+        if x == 0:
+            results.append(len(brackets))
+        else:
+            lst = char_counts.get(c, [])
+            pos = bisect.bisect_left(lst, x)
+            results.append(len(lst) - pos)
+    
+    print('\n'.join(map(str, results)))
+
+if __name__ == "__main__":
+    main()
 
 
 
